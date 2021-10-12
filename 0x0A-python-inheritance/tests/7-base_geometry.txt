@@ -7,7 +7,7 @@ SUCCESS CASES:
 
 Test ints greater than 0 (shouldn't raise error or return anything):
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, 999)
+     >>> bg.integer_validator("checkme", 999)
 
 FAIL CASES:
 
@@ -20,13 +20,13 @@ Test non-implemented area method
 
 Test ints less than or equal to 0:
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, 0)
+     >>> bg.integer_validator("checkme", 0)
      Traceback (most recent call last):
      ...
      ValueError: checkme must be greater than 0
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, -999)
+     >>> bg.integer_validator("checkme", -999)
      Traceback (most recent call last):
      ...
      ValueError: checkme must be greater than 0
@@ -34,49 +34,49 @@ Test ints less than or equal to 0:
 Test non-ints:
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, None)
+     >>> bg.integer_validator("checkme", None)
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, hello!)
+     >>> bg.integer_validator("checkme", "hello!")
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, 50)
+     >>> bg.integer_validator("checkme", "50")
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, [1, 2, 3])
+     >>> bg.integer_validator("checkme", [1, 2, 3])
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, (1, 2, 3))
+     >>> bg.integer_validator("checkme", (1, 2, 3))
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, {key: 1})
+     >>> bg.integer_validator("checkme", {"key": 1})
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(age, True)
+     >>> bg.integer_validator("age", True)
      Traceback (most recent call last):
      ...
      TypeError: age must be an integer
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(checkme, {3, 4})
+     >>> bg.integer_validator("checkme", {3, 4})
      Traceback (most recent call last):
      ...
      TypeError: checkme must be an integer
@@ -89,7 +89,7 @@ Test invalid number of arguments:
      TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
      >>> bg = BaseGeometry()
-     >>> bg.integer_validator(age)
+     >>> bg.integer_validator("age")
      Traceback (most recent call last):
      ...
      TypeError: integer_validator() missing 1 required positional argument: 'value'
