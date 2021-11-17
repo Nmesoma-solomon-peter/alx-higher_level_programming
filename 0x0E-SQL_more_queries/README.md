@@ -1,1 +1,1 @@
-This is my second SQL and database readme file
+my sql second task
